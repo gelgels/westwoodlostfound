@@ -14,13 +14,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import os
 import cgi
+import time
+import jinja2
 import urllib
 import webapp2
 import datetime
 
 from google.appengine.ext import db
 
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 class Posting(db.Model):
     """ Models a posting on the site """
@@ -32,49 +37,21 @@ class Posting(db.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
-        self.response.write("""
-            <html>
-                <body>
-                    <div class="header">
-                        Westwood Lost and Found
-                    </div>
-                    <div class="submit-post">
-                        <a href="/submit">Submit a post</a>
-                    </div>
-        """)
-
         postings = db.GqlQuery("SELECT * "
                                "FROM Posting "
                                "ORDER BY date DESC LIMIT 10")
-        for p in postings:
-            self.response.out.write('<div class="post">')
-            self.response.out.write('<div class="post-title">%s</div>' % p.title)
-            self.response.out.write('<div class="post-desc">%s</div>' % p.desc)
-            self.response.out.write('<div class="post-date">%s</div>' % p.date)
-            self.response.out.write('<div class="post-category">%s</div>' % p.category)
-            self.response.out.write('</div>')
 
-        self.response.write("""
-                </body>
-            </html>
-        """)
+        template_values = {
+            'postings' : postings
+        }
+
+        template = jinja_environment.get_template('index.html')
+        self.response.out.write(template.render(template_values))
 
 class SubmitPostView(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Submit a lost or found item below:')
-        self.response.write("""
-            <html>
-                <body>
-                    <form action="/submit-post" method="post">
-                        <div> <textarea name="title"></textarea> </div>
-                        <div> <textarea name="desc"></textarea> </div>
-                        <div> <textarea name="email"></textarea> </div>
-                        <div> <input type="submit"> </div>
-                    </form>
-                </body>
-            </html>
-            """)
+        template = jinja_environment.get_template('submit.html')
+        self.response.out.write(template.render())
 
 class SubmitPost(webapp2.RequestHandler):
     def post(self):
@@ -87,8 +64,35 @@ class SubmitPost(webapp2.RequestHandler):
 
         self.response.out.write("Your posting about %s has been posted." % self.request.get('title'))
 
+class LostItemsView(webapp2.RequestHandler):
+    def get(self):
+        postings = db.GqlQuery("SELECT * FROM Posting WHERE category = 'lost'")
+        template_values = {
+            'postings' : postings
+        }
+        template = jinja_environment.get_template('index.html')
+        self.response.out.write(template.render(template_values))
+
+class FoundItemsView(webapp2.RequestHandler):
+    def get(self):
+        postings = db.GqlQuery("SELECT * FROM Posting WHERE category = 'found'")
+        template_values = {
+            'postings' : postings
+        }
+        template = jinja_environment.get_template('index.html')
+        self.response.out.write(template.render(template_values))
+
+class PostView(webapp2.RequestHandler):
+    def get(self):
+        id_arg = self.request.get('id')
+        post = Posting.get_by_id(int(id_arg))
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/post', PostView),
+    ('/lost', LostItemsView),
+    ('/found', FoundItemsView),
     ('/submit', SubmitPostView),
     ('/submit-post', SubmitPost)
 ], debug=True)

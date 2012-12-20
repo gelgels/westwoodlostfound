@@ -1,0 +1,59 @@
+body {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+/* -- header styling -- */
+
+.header {
+  text-align: center;
+  padding-bottom: 18px;
+}
+
+.header p {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.header a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.submit-link {
+  font-size: 18px;
+}
+
+/* -- sidebar styling -- */
+
+.sidebar {
+  background-color: #CFF76F;
+  padding: 6px;
+  font-size: 12px;
+}
+
+/* -- post styling -- */
+
+.lost, .found {
+  margin-bottom: 12px;
+  padding: 12px;
+}
+
+.lost {
+  background-color: #BA2F39;
+}
+
+.found {
+  background-color: #00675C;
+}
+
+/* -- submission styling -- */
+
+.submit-post {
+  background-color: #8BB42D;
+  padding: 12px;
+}
+
+.submit-post textarea {
+  background-color: inherit;
+  width: 100%;
+}

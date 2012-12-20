@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/simplegrid.css">
+  </head>
+  <body>
+    <div class="grid grid-pad">
+      <div class="col-1-1">
+        <div class="content header">
+          <p>
+            <a href="/">
+              Westwood Lost and Found
+            </a>
+          </p>
+          <a href="/submit" class="submit-link">submit a lost or found item</a>
+        </div>      </div>
+      <div class="col-1-12">
+        <p></p>
+      </div>
+      <div class="col-4-12">
+        <div class="content sidebar">
+          <i>from those who brought you spottedonbruinwalk</i>
+          <p>finally, a centralized place for everything lost and found at UCLA and around westwood.</p>
+          <a href="/lost">lost items</a>
+          <a href="/found">found items</a>
+        </div>
+      </div>
+      <div class="col-7-12">
+        <div class="content">
+          {% for posting in postings %}
+          <div class="post">
+            <div class="post-title">
+              <a href="/post?id={{ posting.key().id() }}">
+                {{ posting.title }}
+              </a>
+            </div>
+            <div class="post-desc">
+              {{ posting.desc }}
+            </div>
+            <div class="{{posting.category}}">
+              <div class="post-datetime">
+                {{posting.category.title()}} item on {{ posting.date.strftime('%b %d, %Y %I:%M %p') }}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
