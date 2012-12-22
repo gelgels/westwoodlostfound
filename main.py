@@ -59,10 +59,16 @@ class SubmitPost(webapp2.RequestHandler):
         p.title = self.request.get('title')
         p.desc = self.request.get('desc')
         p.email = self.request.get('email')
-        p.category = 'lost'
+        p.category = self.request.get('category')
         p.put()
 
-        self.response.out.write("Your posting about %s has been posted." % self.request.get('title'))
+        template_values = {
+            'title' : p.title,
+            'id'    : str(p.key().id())
+        }
+
+        template = jinja_environment.get_template('confirm.html')
+        self.response.out.write(template.render(template_values))
 
 class LostItemsView(webapp2.RequestHandler):
     def get(self):
@@ -87,6 +93,12 @@ class PostView(webapp2.RequestHandler):
         id_arg = self.request.get('id')
         post = Posting.get_by_id(int(id_arg))
 
+        template_values = {
+            'post' : post
+        }
+
+        template = jinja_environment.get_template('post.html')
+        self.response.out.write(template.render(template_values))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
