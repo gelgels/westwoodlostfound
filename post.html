@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="post-wrapper">
+    <div class="post-content">
+      <div class="post-title">
+        <a href="/post?id={{ post.key().id() }}">{{ post.title }}</a>
+      </div>
+      <div class="post-desc">
+        {{ post.desc }}
+      </div>
+    </div>
+    <div class="{{ post.category }}">
+      {{post.category.title()}} item posted on {{ post.date.strftime('%b %d, %Y %I:%M %p') }}
+    </div>
+  </div>
+
+  <div class="comments-wrapper">
+    comments here...
+  </div>
+{% endblock %}

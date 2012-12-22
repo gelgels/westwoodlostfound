@@ -1,59 +1,181 @@
+/* -- general styling -- */
+
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 body {
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Rambla', sans-serif;
+  background-color: #2C4762;
+  /*background-image: url("/images/pattern.png");*/
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* -- header styling -- */
 
-.header {
+.header-wrapper {
   text-align: center;
   padding-bottom: 18px;
 }
 
-.header p {
-  font-size: 36px;
+.header-wrapper p, .header-wrapper a {
+  color: #cdcdcd;
+}
+
+.header-title {
+  font-size: 48px;
   margin-bottom: 12px;
-}
-
-.header a {
   text-decoration: none;
-  color: #000000;
 }
 
-.submit-link {
+.header-title a:hover {
+  text-decoration: none;
+}
+
+.header-submit {
   font-size: 18px;
 }
 
 /* -- sidebar styling -- */
 
-.sidebar {
-  background-color: #CFF76F;
-  padding: 6px;
+.sidebar-wrapper {
+  padding: 0px;
+  background-color: #cdcdcd;
+}
+
+.sidebar-content {
+  padding: 12px;
+}
+
+.sidebar-submit {
+  padding: 12px;
+  background-color: #efefef;
+}
+
+.sidebar-footer {
+  margin-top: 12px;
   font-size: 12px;
+  background-color: #cdcdcd;
+  padding: 12px;
+}
+
+.sidebar-footer p {
+  margin: 0px;
 }
 
 /* -- post styling -- */
 
-.lost, .found {
+.post-wrapper {
+  background-color: #cdcdcd;
   margin-bottom: 12px;
+}
+
+.post-title {
+  font-weight: bold;
+}
+
+.post-content {
   padding: 12px;
 }
 
 .lost {
-  background-color: #BA2F39;
+  background-color: #FFC500;
 }
 
 .found {
-  background-color: #00675C;
+  background-color: #FF5600;
+}
+
+/*.lost {
+  background-color: #A60000;
+}
+
+.found {
+  background-color: #009999;
+}*/
+
+/*.lost {
+  background-color: #FF8330;
+}
+
+.found {
+  background-color: #3AAACF;
+}*/
+
+.lost, .found {
+  padding: 6px 12px 6px 12px;
+  text-decoration: none;
+  border: 1px;
+  color: black;
+  font-size: 12px;
 }
 
 /* -- submission styling -- */
 
 .submit-post {
-  background-color: #8BB42D;
+  background-color: #cdcdcd;
   padding: 12px;
 }
 
 .submit-post textarea {
   background-color: inherit;
   width: 100%;
+}
+
+.submit-wrapper {
+  text-align: center;
+  background-color: #cdcdcd;
+}
+
+.submit-button {
+  border: none;
+  background-color: #cdcdcd;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+}
+
+.submit-radio {
+  width: 50%;
+  display: block;
+  float: left;
+}
+
+.submit-radio input {
+  border: none;
+  background: none;
+}
+
+.submit-radio input {
+  width: 100%;
+}
+
+input {
+  background-color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* -- confirmation page -- */
+
+.confirm-wrapper {
+  background-color: #cdcdcd;
+  padding: 12px;
+}
+
+
+/* -- comments -- */
+.comments-wrapper {
+  margin-top: 12px;
+  background-color: #cdcdcd;
+  padding: 12px;
 }

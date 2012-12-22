@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    {% block head %}
+    <link href='http://fonts.googleapis.com/css?family=Rambla' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/simplegrid.css">
+    {% endblock %}
+  </head>
+
+  <body>
+    <div class="grid grid-pad">
+
+      <div class="col-1-1">
+        {% block header %}
+        <div class="content">
+          <div class="header-wrapper">
+            <p><a href="/" class="header-title">Westwood Lost and Found</a></p>
+            <a href="/submit" class="header-submit">submit a lost or found item</a>
+          </div>
+        </div>
+        {% endblock %}
+      </div>
+
+      <div class="col-1-12">
+        {% block leftmargin %}
+        <p>
+        </p>
+        {% endblock %}
+      </div>
+
+      <div class="col-4-12">
+        {% block sidebar %}
+        <div class="content">
+          <div class="sidebar-wrapper">
+            <div class="sidebar-content">
+              A centralized place for everything lost and found at UCLA and around Westwood.
+            </div>
+            <div class="sidebar-submit">
+              <a href="/submit">submit a lost or found item</a>
+            </div>
+            <div class="lost"><a href="/lost">lost items</a></div>
+            <div class="found"><a href="/found">found items</a></div>
+          </div>
+
+          <div class="sidebar-footer">
+            <p>get in touch via <a href="mailto:westwoodlostandfound@gmail.com">email</a>
+            <p>brought to you by <a href="http://spottedonbruinwalk.com">spotted on bruin walk</a></p>
+          </div>
+
+        </div>
+        {% endblock %}
+      </div>
+
+      <div class="col-6-12">
+        <div class="content">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+
+      <div class="col-1-12">
+        <p></p>
+      </div>
+
+    </div>
+  </body>
+</html>

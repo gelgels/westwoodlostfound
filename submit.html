@@ -1,42 +1,30 @@
-<html>
-  <head>
-    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
-    <link type="text/css" rel="stylesheet" href="/stylesheets/simplegrid.css">
-  </head>
-  <body>
-    <div class="grid grid-pad">
-      <div class="col-1-1">
-        <div class="content header">
-          <p>
-            <a href="/">
-              Westwood Lost and Found
-            </a>
-          </p>
-          <a href="/submit" class="submit-link">submit a lost or found item</a>
-        </div>
-      </div>
-      <div class="col-1-12">
-        <p></p>
-      </div>
-      <div class="col-4-12">
-        <div class="content sidebar">
-          <i>from those who brought you spottedonbruinwalk</i>
-          <p>finally, a centralized place for everything lost and found at UCLA and around westwood.</p>
-          <a href="/lost">lost items</a>
-          <a href="/found">found items</a>
-        </div>
-      </div>
-      <div class="col-7-12">
-        <div class="content submit-post">
-          <form action="/submit-post" method="post">
-            <div> Title your post: <textarea name="title"></textarea> </div>
-            <div> Description: <textarea name="desc"></textarea> </div>
-            <div> Email: <textarea name="email"></textarea> </div>
-            <div> <input type="submit"> </div>
-          </form>
-      </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="submit-post">
+  <form action="/submit-post" method="post">
+    <div class="submit-lostfound">
+      <span class="lost submit-radio">
+        <input type="radio" name="category" value="lost" id="lost" />
+        <label for="lost">Lost</label>
+      </span>
+      <span class="found submit-radio">
+        <input type="radio" name="category" value="found" id="found" />
+        <label for="found">Found</label>
+      </span>
     </div>
-  </div>
-  </body>
-</html>
+    <div> Title:
+      <input type="text" required ="true" maxlength="100" name="title" />
+    </div>
+    <div> Description:
+      <textarea required ="true" maxlength="800" name="desc"></textarea>
+    </div>
+    <div> Email:
+      <input type="text" required ="true" maxlength="80" name="email" />
+    </div>
+
+    <div class="submit-wrapper">
+      <input type="submit" class="submit-button" value="Submit">
+    </div>
+  </form>
+</div>
+{% endblock %}
