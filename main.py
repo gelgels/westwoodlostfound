@@ -19,8 +19,10 @@ import cgi
 import time
 import jinja2
 import urllib
+import logging
 import webapp2
 import datetime
+import wsgiref.handlers
 
 from google.appengine.ext import db
 
@@ -55,17 +57,29 @@ class SubmitPostView(webapp2.RequestHandler):
 
 class SubmitPost(webapp2.RequestHandler):
     def post(self):
-        p = Posting()
-        p.title = self.request.get('title')
-        p.desc = self.request.get('desc')
-        p.email = self.request.get('email')
-        p.category = self.request.get('category')
-        p.put()
 
-        template_values = {
-            'title' : p.title,
-            'id'    : str(p.key().id())
-        }
+        spam_check = self.request.get('spam-check')
+
+        if spam_check:
+            logging.info('Spam post submitted')
+
+            template_values = {
+                'success'   : False
+            }
+
+        else:
+            p = Posting()
+            p.title = self.request.get('title')
+            p.desc = self.request.get('desc')
+            p.email = self.request.get('email')
+            p.category = self.request.get('category')
+            p.put()
+
+            template_values = {
+                'success'   : True,
+                'title'     : p.title,
+                'id'        : str(p.key().id())
+            }
 
         template = jinja_environment.get_template('confirm.html')
         self.response.out.write(template.render(template_values))

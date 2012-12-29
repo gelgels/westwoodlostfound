@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+  {% if success %}
   <div class="confirm-wrapper">
     Your submission about <a href="/post?id={{ id }}">{{ title }}</a> was posted successfully!
   </div>
+  {% else %}
+  <div class="confirm-wrapper">
+    Something went wrong... <a href="/submit">try again?</a>
+  </div>
+  {% endif %}
 
 {% endblock %}

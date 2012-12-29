@@ -5,11 +5,11 @@
     <div class="submit-lostfound">
       <span class="lost submit-radio">
         <input type="radio" name="category" value="lost" id="lost" />
-        <label for="lost">Lost</label>
+        <label for="lost">Lost item</label>
       </span>
       <span class="found submit-radio">
         <input type="radio" name="category" value="found" id="found" />
-        <label for="found">Found</label>
+        <label for="found">Found item</label>
       </span>
     </div>
     <div> Title:
@@ -20,6 +20,10 @@
     </div>
     <div> Email:
       <input type="text" required ="true" maxlength="80" name="email" />
+    </div>
+
+    <div class="hidden-input">
+      <input name="spam-check" type="text">
     </div>
 
     <div class="submit-wrapper">
