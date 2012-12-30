@@ -140,6 +140,8 @@ class ContactSubmit(webapp2.RequestHandler):
         post = Posting.get_by_id(int(post_id))
         allow_contact = post.allow_contact
         recipient_email = post.email
+        success = False
+
 
         if self.request.get("spam-check"):
             logging.info("Attempted spam email via contact form")
@@ -154,18 +156,20 @@ class ContactSubmit(webapp2.RequestHandler):
             %s
 
             If you don't want to receive emails regarding your post, click here:
-            http://localhost:8081/unsub?key=%s
-            """ % (post.title, sender_message, sender_email, post.key())
+            http://%s/unsub?key=%s
+            """ % (post.title, sender_message, sender_email, self.request.host_url, post.key())
 
             mail.send_mail(sender="Westwood Lost and Found <mail@westwoodlostfound.appspotmail.com>",
                            to=recipient_email,
                            subject="Response to '" + post.title + "'",
                            body=body)
 
+            success = True
+
         template_values = {
             'id'            : post_id,
             'title'         : post.title,
-            'allow_contact' : allow_contact
+            'success'       : success
         }
 
         template = jinja_environment.get_template('contact-confirm.html')

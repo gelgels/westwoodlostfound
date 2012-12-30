@@ -2,7 +2,7 @@
 {% block content %}
   <div class="contact-wrapper">
     <div class="contact-content">
-      {% if allow_contact %}
+      {% if success %}
       Your message and contact info was sent to the person who submitted <a href="/post?id={{ id }}">{{ title }}</a>.
       {% else %}
       Sorry, the person who submitted <a href="/post?id={{ id }}">{{ title }}</a> no longer wishes to receive messages.
