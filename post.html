@@ -10,11 +10,7 @@
       </div>
     </div>
     <div class="{{ post.category }}">
-      {{post.category.title()}} item posted on {{ post.date.strftime('%b %d, %Y %I:%M %p') }}
+      {{post.category.title()}} item posted on {{ post.date.strftime('%b %d, %Y %I:%M %p') }} | <a href="/contact?id={{ post.key().id() }}">Contact the poster</a>
     </div>
-  </div>
-
-  <div class="comments-wrapper">
-    comments here...
   </div>
 {% endblock %}

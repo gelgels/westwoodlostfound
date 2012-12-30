@@ -7,7 +7,7 @@ textarea {
 
 body {
   font-family: 'Rambla', sans-serif;
-  background-color: #009D91;
+  background-color: #ffffff;
   /*background-image: url("/images/pattern.png");*/
 }
 
@@ -23,20 +23,17 @@ a:hover {
 
 .header-wrapper {
   text-align: center;
-  padding-bottom: 18px;
-}
-
-.header-wrapper p, .header-wrapper a {
-  color: #efefef;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #efefef;
 }
 
 .header-title {
   font-size: 48px;
-  margin-bottom: 12px;
   text-decoration: none;
 }
 
-.header-title a:hover {
+.header-wrapper a:hover {
   text-decoration: none;
 }
 
@@ -88,11 +85,11 @@ a:hover {
 }
 
 .lost {
-  background-color: #9CEF6C;
+  background-color: #FFD073;
 }
 
 .found {
-  background-color: #4575D4;
+  background-color: #689cd2;
 }
 
 /*.lost {
@@ -174,17 +171,14 @@ input, textarea {
   padding: 12px;
 }
 
-
-/* -- comments -- */
-.comments-wrapper {
-  margin-top: 12px;
+/* -- contact form -- */
+.contact-wrapper {
   background-color: #efefef;
   padding: 12px;
 }
 
-/* -- contact form -- */
-
-.contact-wrapper {
+/* -- unsub page -- */
+.unsub-wrapper {
   background-color: #efefef;
   padding: 12px;
 }

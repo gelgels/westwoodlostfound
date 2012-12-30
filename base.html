@@ -10,17 +10,26 @@
 
   <body>
     <div class="grid grid-pad">
-
-      <div class="col-1-1">
+      <div class="col-1-12">
+        <p>
+        </p>
+      </div>
+      <div class="col-10-12">
         {% block header %}
         <div class="content">
           <div class="header-wrapper">
-            <p><a href="/" class="header-title">Westwood Lost and Found</a></p>
-            <a href="/submit" class="header-submit">submit a lost or found item</a>
+            <a href="/" class="header-title">Westwood Lost and Found</a>
           </div>
         </div>
         {% endblock %}
       </div>
+
+      <div class="col-1-12">
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-pad">
 
       <div class="col-1-12">
         {% block leftmargin %}
@@ -46,6 +55,7 @@
           <div class="sidebar-footer">
             <p>get in touch via <a href="mailto:westwoodlostandfound@gmail.com">email</a>
             <p>brought to you by <a href="http://spottedonbruinwalk.com">spotted on bruin walk</a></p>
+
           </div>
 
         </div>
@@ -64,5 +74,6 @@
       </div>
 
     </div>
+  </div>
   </body>
 </html>

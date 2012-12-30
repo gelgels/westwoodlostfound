@@ -2,6 +2,16 @@
 {% block content %}
 <div class="submit-post">
   <form action="/submit-post" method="post">
+    <div> Title:
+      <input type="text" required ="true" maxlength="100" name="title" />
+    </div>
+    <div> Description:
+      <textarea required ="true" maxlength="800" name="desc"></textarea>
+    </div>
+    <div> Email:
+      <input type="text" required ="true" maxlength="80" name="email" />
+    </div>
+
     <div class="submit-lostfound">
       <span class="lost submit-radio">
         <input type="radio" name="category" value="lost" id="lost" />
@@ -11,15 +21,6 @@
         <input type="radio" name="category" value="found" id="found" />
         <label for="found">Found item</label>
       </span>
-    </div>
-    <div> Title:
-      <input type="text" required ="true" maxlength="100" name="title" />
-    </div>
-    <div> Description:
-      <textarea required ="true" maxlength="800" name="desc"></textarea>
-    </div>
-    <div> Email:
-      <input type="text" required ="true" maxlength="80" name="email" />
     </div>
 
     <div class="hidden-input">
