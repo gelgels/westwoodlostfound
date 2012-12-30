@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="contact-wrapper">
+    <div class="contact-content">
+      Your email address and message will be emailed to the person who posted about <a href="/post?id={{ id }}">{{ title }}</a>.
+      <br><br>
+      <form action="/contact-submit" method="post">
+        Email address:
+        <input type="text" name="email" maxlength="100" />
+        Message:
+        <textarea required="true" maxlength="800" name="message">
+        </textarea>
+        <div class="hidden-input">
+          <input type="text" name="id" value="{{ id }}" />
+          <input type="text" name="spam-check" />
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+{% endblock %}
