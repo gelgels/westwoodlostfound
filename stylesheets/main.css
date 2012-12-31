@@ -7,7 +7,7 @@ textarea {
 
 body {
   font-family: 'Rambla', sans-serif;
-  background-color: #ffffff;
+  background-color: #F9F9F9;
   /*background-image: url("/images/pattern.png");*/
 }
 
@@ -25,11 +25,13 @@ a:hover {
   text-align: center;
   padding-top: 16px;
   padding-bottom: 16px;
-  background-color: #efefef;
+  /*background-color: #EF4423;*/
 }
 
 .header-title {
-  font-size: 48px;
+  color: #0B5FA5;
+  font-size: 64px;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -45,81 +47,66 @@ a:hover {
 
 .sidebar-wrapper {
   padding: 0px;
-  background-color: #efefef;
+  background-color: #F0F0F0;
 }
 
 .sidebar-content {
   padding: 12px;
+  font-weight: bold;
+  color: #888;
 }
 
 .sidebar-submit {
   padding: 12px;
-  background-color: #efefef;
+  background-color: #F0F0F0;
 }
 
 .sidebar-footer {
   margin-top: 12px;
   font-size: 12px;
-  background-color: #efefef;
+  background-color: #F0F0F0;
   padding: 12px;
 }
 
 .sidebar-footer p {
   margin: 0px;
+  color: #888;
 }
 
 /* -- post styling -- */
 
 .post-wrapper {
-  background-color: #efefef;
+  background-color: #ffffff;
   margin-bottom: 12px;
 }
 
 .post-title {
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .post-content {
   padding: 12px;
 }
 
-.lost {
-  background-color: #FFD073;
+.lost, .lost a {
+  color: #A30008;
 }
 
-.found {
-  background-color: #689cd2;
+.found, .found a {
+  color: #0B5FA5;
 }
-
-/*.lost {
-  background-color: #A60000;
-}
-
-.found {
-  background-color: #009999;
-}*/
-
-/*.lost {
-  background-color: #FF8330;
-}
-
-.found {
-  background-color: #3AAACF;
-}*/
 
 .lost, .found {
   padding: 6px 12px 6px 12px;
   text-decoration: none;
   border: 1px;
-  color: black;
   font-size: 12px;
 }
 
 /* -- submission styling -- */
 
 .submit-post {
-  background-color: #efefef;
+  background-color: #ffffff;
   padding: 12px;
 }
 
@@ -130,12 +117,12 @@ a:hover {
 
 .submit-wrapper {
   text-align: center;
-  background-color: #efefef;
+  background-color: #ffffff;
 }
 
 .submit-button {
   border: none;
-  background-color: #efefef;
+  background-color: #ffffff;
   font-family: inherit;
   font-size: inherit;
   text-decoration: underline;
@@ -167,18 +154,18 @@ input, textarea {
 /* -- confirmation page -- */
 
 .confirm-wrapper {
-  background-color: #efefef;
+  background-color: #ffffff;
   padding: 12px;
 }
 
 /* -- contact form -- */
 .contact-wrapper {
-  background-color: #efefef;
+  background-color: #ffffff;
   padding: 12px;
 }
 
 /* -- unsub page -- */
 .unsub-wrapper {
-  background-color: #efefef;
+  background-color: #ffffff;
   padding: 12px;
 }
