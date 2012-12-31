@@ -3,22 +3,22 @@
 <div class="submit-post">
   <form action="/submit-post" method="post">
     <div> Title:
-      <input type="text" required ="true" maxlength="100" name="title" />
+      <input type="text" required="required" maxlength="100" name="title" />
     </div>
     <div> Description:
-      <textarea required ="true" maxlength="800" name="desc"></textarea>
+      <textarea required ="required" maxlength="800" name="desc"></textarea>
     </div>
     <div> Email:
-      <input type="text" required ="true" maxlength="80" name="email" />
+      <input type="text" required="required" maxlength="80" name="email" />
     </div>
 
     <div class="submit-lostfound">
       <span class="lost submit-radio">
-        <input type="radio" name="category" value="lost" id="lost" />
+        <input type="radio" name="category" value="lost" id="lost" required="required" />
         <label for="lost">Lost item</label>
       </span>
       <span class="found submit-radio">
-        <input type="radio" name="category" value="found" id="found" />
+        <input type="radio" name="category" value="found" id="found" required="required" />
         <label for="found">Found item</label>
       </span>
     </div>
