@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="post-desc">
-        {{ post_obj.desc }}
+        {{ post_obj.desc.replace('\n', '<br />') }}
       </div>
     </div>
     <div class="{{post_obj.category}}">
