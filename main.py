@@ -87,10 +87,10 @@ class SubmitPost(webapp2.RequestHandler):
 
         else:
             p = Posting()
-            p.title = self.request.get('title')
-            p.desc = strip_tags(self.request.get('desc'))
-            p.email = self.request.get('email')
-            p.category = self.request.get('category')
+            p.title     = strip_tags(self.request.get('title'))
+            p.desc      = strip_tags(self.request.get('desc'))
+            p.email     = strip_tags(self.request.get('email'))
+            p.category  = self.request.get('category')
             p.allow_contact = True
             p.put()
 
@@ -150,8 +150,8 @@ class ContactView(webapp2.RequestHandler):
 class ContactSubmit(webapp2.RequestHandler):
     def post(self):
         post_id = self.request.get("id")
-        sender_email = self.request.get("email")
-        sender_message = self.request.get("message")
+        sender_email = strip_tags(self.request.get("email"))
+        sender_message = strip_tags(self.request.get("message"))
 
         post = Posting.get_by_id(int(post_id))
         allow_contact = post.allow_contact
