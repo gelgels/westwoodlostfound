@@ -30,6 +30,22 @@ from google.appengine.api import mail
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+from HTMLParser import HTMLParser
+
+class MLStripper(HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.fed = []
+    def handle_data(self, d):
+        self.fed.append(d)
+    def get_data(self):
+        return ''.join(self.fed)
+
+def strip_tags(html):
+    s = MLStripper()
+    s.feed(html)
+    return s.get_data()
+
 class Posting(db.Model):
     """ Models a posting on the site """
     title = db.StringProperty()
@@ -72,7 +88,7 @@ class SubmitPost(webapp2.RequestHandler):
         else:
             p = Posting()
             p.title = self.request.get('title')
-            p.desc = self.request.get('desc')
+            p.desc = strip_tags(self.request.get('desc'))
             p.email = self.request.get('email')
             p.category = self.request.get('category')
             p.allow_contact = True
