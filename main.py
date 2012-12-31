@@ -108,10 +108,10 @@ class FoundItemsView(webapp2.RequestHandler):
 class PostView(webapp2.RequestHandler):
     def get(self):
         id_arg = self.request.get('id')
-        post = Posting.get_by_id(int(id_arg))
+        posting = Posting.get_by_id(int(id_arg))
 
         template_values = {
-            'post' : post
+            'posting' : posting
         }
 
         template = jinja_environment.get_template('post.html')

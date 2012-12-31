@@ -1,25 +1,8 @@
 {% extends "base.html" %}
+{% from "post_macro.html" import post_macro with context %}
 
 {% block content %}
-{% for posting in postings %}
-<div class="post-wrapper">
-  <div class="post-content">
-    <div class="post-title">
-      <a href="/post?id={{ posting.key().id() }}">
-        <b>
-          {{ posting.title }}
-        </b>
-      </a>
-    </div>
-    <div class="post-desc">
-      {{ posting.desc }}
-    </div>
-  </div>
-  <div class="{{posting.category}}">
-    <div class="post-datetime">
-      {{posting.category.title()}} item posted on {{ posting.date.strftime('%b %d, %Y %I:%M %p') }}
-    </div>
-  </div>
-</div>
-{% endfor %}
+  {% for posting in postings %}
+    {{ post_macro(post_obj=posting) }}
+  {% endfor %}
 {% endblock %}

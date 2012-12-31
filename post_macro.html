@@ -1,0 +1,22 @@
+{% macro post_macro(post_obj) %}
+  <div class="post-wrapper">
+    <div class="post-content">
+      <div class="post-title">
+        <a href="/post?id={{ post_obj.key().id() }}">
+          {{ post_obj.title }}
+        </a>
+      </div>
+      <div class="post-desc">
+        {{ post_obj.desc }}
+      </div>
+    </div>
+    <div class="{{post_obj.category}}">
+      <div class="post-datetime">
+        {{post_obj.category.title()}} item posted on {{ post_obj.date.strftime('%b %d, %Y %I:%M %p') }}
+          {% if post_obj.allow_contact %}
+           |  <a href="/contact?id={{ post_obj.key().id() }}">Contact the poster</a>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
