@@ -8,7 +8,6 @@ textarea {
 body {
   font-family: 'Rambla', sans-serif;
   background-color: #F9F9F9;
-  /*background-image: url("/images/pattern.png");*/
 }
 
 a {
@@ -25,7 +24,6 @@ a:hover {
   text-align: center;
   padding-top: 16px;
   padding-bottom: 16px;
-  /*background-color: #EF4423;*/
 }
 
 .header-title {
@@ -44,7 +42,6 @@ a:hover {
 }
 
 /* -- sidebar styling -- */
-
 .sidebar-wrapper {
   padding: 0px;
   background-color: #F0F0F0;
@@ -121,22 +118,10 @@ a:hover {
 }
 
 .submit-button {
-  border: none;
   background-color: #ffffff;
   font-family: inherit;
   font-size: inherit;
   text-decoration: underline;
-}
-
-.submit-radio {
-  width: 50%;
-  float: left;
-}
-
-.submit-radio input {
-  border: none;
-  background: none;
-  width: 100%;
 }
 
 .hidden-input {
@@ -149,6 +134,17 @@ input, textarea {
   font-family: inherit;
   font-size: inherit;
   border: 1px #cdcdcd solid;
+}
+
+.submit-lostfound input {
+  width: auto;
+}
+
+.submit-span {
+  width: 50%;
+  display: block;
+  float: left;
+  padding: 12px 0 12px 0;
 }
 
 /* -- confirmation page -- */
