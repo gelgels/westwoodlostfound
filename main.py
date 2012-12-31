@@ -156,10 +156,10 @@ class ContactSubmit(webapp2.RequestHandler):
             %s
 
             If you don't want to receive emails regarding your post, click here:
-            http://%s/unsub?key=%s
+           %s/unsub?key=%s
             """ % (post.title, sender_message, sender_email, self.request.host_url, post.key())
 
-            mail.send_mail(sender="Westwood Lost and Found <mail@westwoodlostfound.appspotmail.com>",
+            mail.send_mail(sender="Westwood Lost and Found <admin@westwoodlostandfound.com>",
                            to=recipient_email,
                            subject="Response to '" + post.title + "'",
                            body=body)
