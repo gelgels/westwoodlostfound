@@ -165,3 +165,10 @@ input, textarea {
   background-color: #ffffff;
   padding: 12px;
 }
+
+/* -- social css lol -- */
+.facebook-wrapper {
+  background-color: #ffffff;
+  padding: 12px;
+  font-family: 'Rambla', sans-serif;
+}

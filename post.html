@@ -2,4 +2,7 @@
 {% from "post_macro.html" import post_macro with context %}
 {% block content %}
   {{ post_macro(post_obj=posting) }}
+  <div class="facebook-wrapper">
+    <fb:like send="false" show_faces="true" font="lucida grande"></fb:like>
+  </div>
 {% endblock %}
